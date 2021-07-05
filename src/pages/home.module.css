@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #181818;
+  color: #e1e1e1;
+}
+.container input {
+  height: 40px;
+  border-radius: 8px;
+  border: 0;
+  background: #333;
+  border: 2px solid #da00ae;
+  color: #fff;
+  font-size: 20px;
+  width: 300px;
+  margin-bottom: 6px;
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: 0;
+}
+.container button {
+  width: 316px;
+  height: 40px;
+  background: #333;
+  color: #fff;
+  font-size: 20px;
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0 8px;
+}
+
+.container button:active {
+  background: #666;
+}
