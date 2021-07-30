@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Can } from "../components/Can";
 import { useAuth } from "../contexts/AuthContext";
 import { setupAPIClient } from "../services/api";
 import { api } from "../services/apiClient";
@@ -6,7 +7,7 @@ import { withSSRAuth } from "../utils/withSSRAuth";
 import styles from "./home.module.css";
 
 export default function Dashboard() {
-  const { user } = useAuth();
+  const { user, signOut } = useAuth();
 
   useEffect(() => {
     api
@@ -20,13 +21,17 @@ export default function Dashboard() {
         Autenticado <br />
         {user?.email}
       </h1>
+      <button onClick={signOut}>Sair</button>
+      <Can permissions={["metrics.list"]}>
+        <div>Métricas</div>
+      </Can>
     </div>
   );
 }
 
 export const getServerSideProps = withSSRAuth(async (ctx) => {
   const apiClient = setupAPIClient(ctx);
-  await apiClient.get("/me");
+  const res = await apiClient.get("/me");
 
   return {
     props: {},

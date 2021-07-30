@@ -6,6 +6,7 @@
   height: 100vh;
   background-color: #181818;
   color: #e1e1e1;
+  gap: 1rem;
 }
 .container input {
   height: 40px;
